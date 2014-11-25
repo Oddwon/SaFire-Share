@@ -537,6 +537,7 @@
 						updates remotely through the RHN website, it is recommended that the service
 						be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-3416-5</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" platform="cpe:/o:redhat:enterprise_linux:5" reboot="false" disruption="low" system="urn:xccdf:fix:script:sh">/etc/chkconfig rhnsd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20007"/>
 					</check>
@@ -567,6 +568,7 @@
 						overhead. When possible, replace this service with a cron job that calls
 						yum directly.</description>
 					<ident system="http://cce.mitre.org">CCE-4218-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" platform="cpe:/o:redhat:enterprise_linux:5" reboot="false" disruption="low" system="urn:xccdf:fix:script:sh">/etc/chkconfig yum-updatesd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20008"/>
 					</check>
@@ -621,6 +623,7 @@
 						including the quick-start on which this advice is based, is available in
 						/usr/share/doc/aide-0.12.</description>
 					<ident system="http://cce.mitre.org">CCE-4209-3</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">yum install aide</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20014"/>
 					</check>
@@ -2219,6 +2222,7 @@
 							<description override="0">The idle time-out value for period of inactivity gnome
 								desktop lockout should be 15 minutes</description>
 							<ident system="http://cce.mitre.org">CCE-3315-9</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">gconftool-2 --direct \ --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory \ --type int \ --set /apps/gnome-screensaver/idle_delay 15</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-export value-id="usgcb-rhel5desktop-var-2.3.5.5" export-name="oval:gov.nist.usgcb.rhel:var:20098"/>
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20100"/>
@@ -2231,6 +2235,7 @@
 							<description override="0">Idle activation of the screen saver should be
 								enabled</description>
 							<ident system="http://cce.mitre.org">CCE-14604-3</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">gconftool-2 --direct \ --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory \ --type bool \ --set /apps/gnome-screensaver/idle_activation_enabled true</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:201005"/>
 							</check>
@@ -2242,6 +2247,7 @@
 							<description override="0">Idle activation of the screen lock should be
 								enabled</description>
 							<ident system="http://cce.mitre.org">CCE-14023-6</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">gconftool-2 --direct \ --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory \ --type bool \ --set /apps/gnome-screensaver/lock_enabled true</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:201006"/>
 							</check>
@@ -2252,6 +2258,7 @@
 							<title override="0">CCE-14735-5:Implement blank screen saver</title>
 							<description override="0">The screen saver should be blank</description>
 							<ident system="http://cce.mitre.org">CCE-14735-5</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">gconftool-2 --direct \ --config-source xml:readwrite:/etc/gconf/gconf.xml.mandatory \ --type string \ --set /apps/gnome-screensaver/mode blank-only</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:201007"/>
 							</check>
@@ -2479,6 +2486,7 @@ enforcement officials.
 						<title override="0">CCE-3668-1:Disable MCS Translation Service (mcstrans) if Possible</title>
 						<description override="0">The mcstrans service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-3668-1</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chkconfig mcstrans off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20110"/>
 						</check>
@@ -4013,6 +4021,7 @@ enforcement officials.
 					<title override="0">CCE-4421-4:Boot Caching (readahead early/readahead later)</title>
 					<description override="0">The readahead_early service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4421-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig readahead_early off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20196"/>
 					</check>
@@ -4023,6 +4032,7 @@ enforcement officials.
 					<title override="0">CCE-4302-6:Boot Caching (readahead early/readahead later)</title>
 					<description override="0">The readahead_later service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4302-6</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig readahead_early off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20197"/>
 					</check>
@@ -4052,6 +4062,7 @@ enforcement officials.
 						<title override="0">CCE-4355-4:Bluetooth Host Controller Interface Daemon (bluetooth)</title>
 						<description override="0">The bluetooth service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4355-4</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig bluetooth off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20200"/>
 						</check>
@@ -4068,6 +4079,7 @@ enforcement officials.
 						<title override="0">CCE-4377-8:Bluetooth Input Devices (hidd)</title>
 						<description override="0">The hidd service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4377-8</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig hidd off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20201"/>
 						</check>
@@ -4087,6 +4099,7 @@ enforcement officials.
 				<title override="0">CCE-4324-0:Enable cron Daemon</title>
 				<description override="0">The crond service should be enabled.</description>
 				<ident system="http://cce.mitre.org">CCE-4324-0</ident>
+				<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig crond on</fix>
 				<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 					<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20205"/>
 				</check>
@@ -4167,6 +4180,7 @@ enforcement officials.
 					<description override="0">The /etc/crontab file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-3626-9</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chown root:root /etc/crontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.primary.group" export-name="oval:gov.nist.usgcb.rhel:var:20208"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20208"/>
@@ -4179,6 +4193,7 @@ enforcement officials.
 					<description override="0">The /etc/crontab file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-3851-3</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chown root:root /etc/crontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.primary.user" export-name="oval:gov.nist.usgcb.rhel:var:20209"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20209"/>
@@ -4192,6 +4207,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/crontab should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4388-5</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod 600 /etc/crontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20210"/>
 					</check>
@@ -4203,6 +4219,7 @@ enforcement officials.
 					<description override="0">The /etc/anacrontab file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-3604-6</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chown root:root /etc/crontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.anacrontab.group" export-name="oval:gov.nist.usgcb.rhel:var:20211"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20211"/>
@@ -4215,6 +4232,7 @@ enforcement officials.
 					<description override="0">The /etc/anacrontab file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-4379-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chown root:root /etc/anacrontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.anacrontab.user" export-name="oval:gov.nist.usgcb.rhel:var:20212"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20212"/>
@@ -4227,6 +4245,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/anacrontab should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4304-2</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod 600 /etc/anacrontab</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20213"/>
 					</check>
@@ -4238,6 +4257,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.hourly file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-4054-3</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.hourly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.group" export-name="oval:gov.nist.usgcb.rhel:var:20214"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20214"/>
@@ -4250,6 +4270,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.daily file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-3481-9</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.daily</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.group" export-name="oval:gov.nist.usgcb.rhel:var:20214"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20215"/>
@@ -4262,6 +4283,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.weekly file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-4331-5</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.weekly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.group" export-name="oval:gov.nist.usgcb.rhel:var:20214"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20216"/>
@@ -4274,6 +4296,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.monthly file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-4322-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.monthly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.group" export-name="oval:gov.nist.usgcb.rhel:var:20214"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20217"/>
@@ -4286,6 +4309,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.d file should be owned by the appropriate
 						group.</description>
 					<ident system="http://cce.mitre.org">CCE-4212-7</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.d</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.group" export-name="oval:gov.nist.usgcb.rhel:var:20214"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20218"/>
@@ -4298,6 +4322,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.hourly file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-3983-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.hourly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.user" export-name="oval:gov.nist.usgcb.rhel:var:20219"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20219"/>
@@ -4310,6 +4335,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.daily file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-4022-0</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.daily</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.user" export-name="oval:gov.nist.usgcb.rhel:var:20219"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20220"/>
@@ -4322,6 +4348,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.weekly file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-3833-1</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.weekly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.user" export-name="oval:gov.nist.usgcb.rhel:var:20219"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20221"/>
@@ -4334,6 +4361,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.monthly file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-4441-2</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.monthly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.user" export-name="oval:gov.nist.usgcb.rhel:var:20219"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20222"/>
@@ -4346,6 +4374,7 @@ enforcement officials.
 					<description override="0">The /etc/cron.d file should be owned by the appropriate
 						user.</description>
 					<ident system="http://cce.mitre.org">CCE-4380-2</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/etc/chown -R root:root /etc/cron.d</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-export value-id="usgcb-rhel5desktop-var-3.4.2.system.crontab.directories.user" export-name="oval:gov.nist.usgcb.rhel:var:20219"/>
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20223"/>
@@ -4358,6 +4387,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/cron.hourly should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4106-1</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod -R go-rwx /etc/cron.hourly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20224"/>
 					</check>
@@ -4369,6 +4399,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/cron.daily should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4450-3</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod -R go-rwx /etc/cron.daily</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20225"/>
 					</check>
@@ -4380,6 +4411,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/cron.weekly should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4203-6</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod -R go-rwx /etc/cron.weekly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20226"/>
 					</check>
@@ -4391,6 +4423,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/cron.monthly should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4251-5</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod -R go-rwx /etc/cron.monthly</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20227"/>
 					</check>
@@ -4402,6 +4435,7 @@ enforcement officials.
 					<description override="0">File permissions for /etc/cron.d should be set
 						correctly.</description>
 					<ident system="http://cce.mitre.org">CCE-4250-7</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">chmod -R go-rwx /etc/cron.d</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20228"/>
 					</check>
@@ -4418,6 +4452,7 @@ enforcement officials.
 					<title override="0">CCE-14466-7:The 'at' daemon should be disabled</title>
 					<description override="0">The atd service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-14466-7</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig atd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:202052"/>
 					</check>
@@ -4599,6 +4634,7 @@ enforcement officials.
 							Options</title>
 						<description override="0">PermitUserEnvironment should be disabled</description>
 						<ident system="http://cce.mitre.org">CCE-4422-2</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">yum groupremove "X Window System"</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:202455"/>
 						</check>
@@ -4659,6 +4695,7 @@ enforcement officials.
 							<description override="0">Disable the ability to provide remote graphical
 								display</description>
 							<ident system="http://cce.mitre.org">CCE-4074-1</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">echo exec X :0 -nolisten tcp $@ > /etc/X11/xinit/xserverrc</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20248"/>
 							</check>
@@ -4712,6 +4749,7 @@ enforcement officials.
 						<title override="0">CCE-4365-3:Disable Avahi Server Software</title>
 						<description override="0">The avahi-daemon service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4365-3</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig avahi-daemon off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20250"/>
 						</check>
@@ -4757,6 +4795,7 @@ enforcement officials.
 						<title override="0">CCE-4425-5:Disable HPLIP Service if Possible</title>
 						<description override="0">The hplip service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4425-5</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig hplip off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20266"/>
 						</check>
@@ -4795,6 +4834,7 @@ enforcement officials.
 					<title override="0">CCE-4336-4:Disable DHCP Server if possible</title>
 					<description override="0">The dhcpd service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4336-4</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig dhcpd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20268"/>
 					</check>
@@ -4850,6 +4890,7 @@ enforcement officials.
 							<title override="0">CCE-4376-0:Enable the NTP Daemon</title>
 							<description override="0">The ntpd service should be enabled.</description>
 							<ident system="http://cce.mitre.org">CCE-4376-0</ident>
+							<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig ntpd on</fix>
 							<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 								<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20281"/>
 							</check>
@@ -4963,6 +5004,7 @@ enforcement officials.
 						<title override="0">CCE-3501-4:Disable OpenLDAP service</title>
 						<description override="0">The ldap service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-3501-4</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig ldap off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20289"/>
 						</check>
@@ -5006,6 +5048,7 @@ enforcement officials.
 						<title override="0">CCE-4396-8:Disable nfslock</title>
 						<description override="0">The nfslock service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4396-8</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig nfslock off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20292"/>
 						</check>
@@ -5016,6 +5059,7 @@ enforcement officials.
 						<title override="0">CCE-3535-2:Disable rpcgssd</title>
 						<description override="0">The rpcgssd service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-3535-2</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig rpcgssd off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20293"/>
 						</check>
@@ -5026,6 +5070,7 @@ enforcement officials.
 						<title override="0">CCE-3568-3:Disable rpcidmapd</title>
 						<description override="0">The rpcidmapd service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-3568-3</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig rpcidmapd off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20294"/>
 						</check>
@@ -5047,6 +5092,7 @@ enforcement officials.
 						<title override="0">CCE-4533-6:Disable netfs if Possible</title>
 						<description override="0">The netfs service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4533-6</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig netfs off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20295"/>
 						</check>
@@ -5081,6 +5127,7 @@ enforcement officials.
 						<title override="0">CCE-4550-0:Disable RPC Portmapper if Possible</title>
 						<description override="0">The portmap service should be disabled.</description>
 						<ident system="http://cce.mitre.org">CCE-4550-0</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig portmap off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20296"/>
 						</check>
@@ -5103,6 +5150,7 @@ enforcement officials.
 						<title override="0">CCE-4473-5:Disable nfs service</title>
 						<description override="0">The nfs service should be disabled</description>
 						<ident system="http://cce.mitre.org">CCE-4473-5</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig nfs off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20303"/>
 						</check>
@@ -5113,6 +5161,7 @@ enforcement officials.
 						<title override="0">CCE-4491-7:Disable rpcsvcgssd service</title>
 						<description override="0">The rpcsvcgssd service should be disabled</description>
 						<ident system="http://cce.mitre.org">CCE-4491-7</ident>
+						<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig rpcsvcgssd off</fix>
 						<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 							<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20304"/>
 						</check>
@@ -5173,6 +5222,7 @@ enforcement officials.
 					<title override="0">CCE-3578-2:Disable DNS Server if Possible</title>
 					<description override="0">The named service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-3578-2</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig named off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20311"/>
 					</check>
@@ -5209,6 +5259,7 @@ enforcement officials.
 					<title override="0">CCE-3919-8:Disable vsftpd if Possible</title>
 					<description override="0">The vsftpd service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-3919-8</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig vsftpd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20317"/>
 					</check>
@@ -5248,6 +5299,7 @@ enforcement officials.
 					<title override="0">CCE-4338-0:Disable Apache if Possible</title>
 					<description override="0">The httpd service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4338-0</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig httpd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20322"/>
 					</check>
@@ -5258,6 +5310,7 @@ enforcement officials.
 					<title override="0">CCE-4514-6:Uninstall Apache if Possible</title>
 					<description override="0">The httpd package should be uninstalled.</description>
 					<ident system="http://cce.mitre.org">CCE-4514-6</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig httpd off;yum erase httpd</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20323"/>
 					</check>
@@ -5279,6 +5332,7 @@ enforcement officials.
 					<title override="0">CCE-3847-1:Disable Dovecot if Possible</title>
 					<description override="0">The dovecot service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-3847-1</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig dovecot off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20331"/>
 					</check>
@@ -5289,6 +5343,7 @@ enforcement officials.
 					<title override="0">CCE-4239-0:Uninstall Dovecot if Possible</title>
 					<description override="0">The dovecot package should be uninstalled.</description>
 					<ident system="http://cce.mitre.org">CCE-4239-0</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig dovecot off;yum erase dovecot</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20332"/>
 					</check>
@@ -5317,6 +5372,7 @@ enforcement officials.
 					<title override="0">CCE-4551-8:Disable Samba if Possible</title>
 					<description override="0">The smb service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4551-8</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig smb off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20340"/>
 					</check>
@@ -5400,6 +5456,7 @@ enforcement officials.
 					<title override="0">CCE-4556-7:Disable Squid if Possible</title>
 					<description override="0">The squid service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-4556-7</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig squid off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20341"/>
 					</check>
@@ -5410,6 +5467,7 @@ enforcement officials.
 					<title override="0">CCE-4076-6:Uninstall Squid if Possible</title>
 					<description override="0">The squid package should be uninstalled.</description>
 					<ident system="http://cce.mitre.org">CCE-4076-6</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig squid off;yum erase squid</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20342"/>
 					</check>
@@ -5435,6 +5493,7 @@ enforcement officials.
 					<title override="0">CCE-3765-5:Disable snmpd if Possible</title>
 					<description override="0">The snmpd service should be disabled.</description>
 					<ident system="http://cce.mitre.org">CCE-3765-5</ident>
+					<fix xmlns:xhtml="http://www.w3.org/1999/xhtml" system="urn:xccdf:fix:script:sh">/sbin/chkconfig snmpd off</fix>
 					<check system="http://oval.mitre.org/XMLSchema/oval-definitions-5" selector="">
 						<check-content-ref href="usgcb-rhel5desktop-oval.xml" name="oval:gov.nist.usgcb.rhel:def:20365"/>
 					</check>
